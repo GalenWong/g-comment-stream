@@ -12,7 +12,10 @@ app.post("/message", function(req, res, next) {
 	if("sender" in msg && "message" in msg){
 		emitMesssage(req.body)
 		console.log(req.body);
-		res.end("ok");
+		const okmsg = {
+			status: "Success!"
+		};
+		res.json(okmsg);
 	}
 	res.status(400);
 	res.end();
