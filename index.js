@@ -33,6 +33,11 @@ app.get("/messages", function(req, res, next){
 	res.json(msg);
 });
 
+app.get("*", function(req, res,){
+	res.sendFile(path.join(__dirname+'/client/build/index.html'));
+})
+
+
 const server = http.createServer(app);
 const PORT = process.env.PORT || 3001;
 const io = socketIO(server);

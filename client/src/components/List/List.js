@@ -21,14 +21,6 @@ class List extends React.Component {
 
     componentDidMount() {
         listenForMessage(this.addMessage)
-        // fetch('/messages')
-        //     .then(res => res.json())
-        //     .then(m => {
-        //         this.setState({
-        //             'messages': [ ...m, ...this.state.messages]
-        //         })
-        //         console.log(this.state)
-        //     })
     }
 
     render() {
@@ -43,6 +35,7 @@ class List extends React.Component {
                             <Typography color="textPrimary" variant="h2">
                                {m.message}
                             </Typography>
+                            
                             <Typography color="textSecondary">
                                {m.sender} - {tstr}
                             </Typography>
