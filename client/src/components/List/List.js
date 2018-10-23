@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { Helmet } from 'react-helmet';
 
 import { listenForMessage } from '../../socket/socket';
 
@@ -29,6 +30,9 @@ class List extends React.Component {
         const { messages } = this.state
         return(
             <div>
+            <Helmet>
+                <title>HackSchool 18 Messages</title>
+            </Helmet>
                 {messages.map(m => 
                     <Card>
                         <CardContent>

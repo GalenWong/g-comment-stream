@@ -1,11 +1,17 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import { Helmet } from 'react-helmet'
 
 import { uploadMessage } from '../../api/api'
 
-const space = {
-    margin: "5px"
+const inputStyle = {
+    margin: "5px",
+    width: "200px"
+}
+
+const buttonStyle = {
+    "margin": "10px"
 }
 
 class UploadPage extends React.Component {
@@ -36,12 +42,15 @@ class UploadPage extends React.Component {
     render(){
         return(
             <>
-            <h2>Hi</h2>
+            <Helmet>
+                <title>POST a message</title>
+            </Helmet>
+            <h2>Hi, POST a message</h2>
             <TextField
                 onChange={this.handleChange('sender')}
                 variant="filled"
                 label="Name"
-                style={space}
+                style={inputStyle}
             />
             <br/>
             <TextField 
@@ -50,10 +59,15 @@ class UploadPage extends React.Component {
                 multiline
                 rowsMax="5"
                 label="Message"
-                style={space}
+                style={inputStyle}
             />
             <br/>
-            <Button variant="contained" color="primary" onClick={this.sendData}>
+            <Button 
+                variant="contained" 
+                color="primary" 
+                onClick={this.sendData}
+                style={buttonStyle}
+            >
                 Send
             </Button>
             </>
