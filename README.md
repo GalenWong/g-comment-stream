@@ -7,7 +7,7 @@ npm start
 ```
 
 # What is this application?
-It allows user to submit a message on '/messages'. The message will show up on '/' real time with socket. 
+It allows user to submit a message on `/messages` endpoint. The message will show up on `/` real time with socket. 
 
 # Why I created this application
 I created this application for a demo in an introduction to backend development workshop that I taught.
