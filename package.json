@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/GalenWong/g-comment-stream#readme",
   "dependencies": {
-    "express": "^4.16.4",
-    "socket.io": "^2.1.1"
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
   }
 }
