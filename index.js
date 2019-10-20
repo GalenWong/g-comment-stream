@@ -2,12 +2,19 @@ const express = require('express');
 const path = require('path');
 const socketIO = require('socket.io');
 const http = require('http');
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+    windowMs: 30 * 1000,
+    max: 5
+});
+
 const app = express();
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.post("/message", function(req, res, next) {
+app.post("/message", limiter, function(req, res, next) {
 	const msg = req.body;
 	if("sender" in msg && "message" in msg){
 		emitMesssage(req.body)
@@ -16,6 +23,7 @@ app.post("/message", function(req, res, next) {
 			status: "Success!"
 		};
 		res.json(okmsg);
+        return;
 	}
 	res.status(400);
 	res.end();
