@@ -17,7 +17,8 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-- task: AzureWebApp@1
+
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
@@ -27,6 +28,7 @@ steps:
     replaceExistingArchive: true
     verbose: true
   
+- task: AzureWebApp@1
   inputs:
     azureSubscription: 'hack-stream - Azure'
     appType: 'webAppLinux'
